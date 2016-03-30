@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Techcrunch news</title>
+    <style>
+        .main-table {
+            border: 1px;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>Techcrunch news</h1>
+    <table border="1" class="main-table">
+        <tr>
+            <td>Title</td>
+            <td>Text</td>
+        </tr>
+        {% for news_item in news %}
+            <tr>
+                <td><a target="_blank" href="{{ news_item.href }}">{{ news_item.title }}</a></td>
+                <td>{{ news_item.text | truncate(length=255, end='...') }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
